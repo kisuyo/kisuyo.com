@@ -4,7 +4,6 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Stack from "./components/Stack";
-import StackMobile from "./components/StackMobile";
 
 export default function Home() {
   const [scrollPointReached, setScrollPointReached] = useState(0);
