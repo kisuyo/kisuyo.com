@@ -85,7 +85,7 @@ export default function Home() {
           <motion.div
             variants={ParentVariants}
             transition={{ duration: 1, easings: "ease-out" }}
-            initial={closed}
+            initial={"closed"}
             animate={1 <= scrollPointReached ? "expanded" : "closed"}
             className="h-screen sticky top-0 flex md:flex-row flex-col gap-[20px] left-0 w-full"
           >
@@ -93,7 +93,7 @@ export default function Home() {
               <motion.div
                 variants={HeroWrapperVariants}
                 transition={{ duration: 0.2, easings: "ease-out" }}
-                initial={closed}
+                initial={"closed"}
                 layout
                 animate={1 <= scrollPointReached ? "expanded" : "closed"}
                 className=" border flex items-center relative justify-center flex-col w-full h-full"
@@ -102,7 +102,7 @@ export default function Home() {
                   variants={TitleVariants}
                   transition={{ duration: 1, easings: "ease-out" }}
                   layout
-                  initial={closed}
+                  initial={"closed"}
                   animate={1 <= scrollPointReached ? "expanded" : "closed"}
                   className=" font-bold"
                 >
@@ -112,7 +112,7 @@ export default function Home() {
                   variants={DescriptionVariants}
                   transition={{ duration: 1, easings: "ease-out" }}
                   layout
-                  initial={closed}
+                  initial={"closed"}
                   animate={1 <= scrollPointReached ? "expanded" : "closed"}
                   className="md:text-[20px] text-[16px] font-normal text-white/50 md:w-[50%] w-[80%] text-center"
                 >
@@ -128,7 +128,7 @@ export default function Home() {
             <motion.div
               variants={AboutMeVariants}
               layout
-              initial={closed}
+              initial={"closed"}
               transition={{ duration: 0.8, easings: "ease-out" }}
               animate={2 <= scrollPointReached ? "expanded" : "closed"}
               className="text-white text-[14px] rounded-[20px] bg-[#0e0e0e] overflow-hidden"

@@ -9,7 +9,7 @@ export default function Stack(props: { scrollPointReached: number }) {
     <motion.div
       variants={StackVariants}
       layout
-      initial={closed}
+      initial={"closed"}
       transition={{ duration: 0.8, easings: "ease-out" }}
       animate={3 <= props.scrollPointReached ? "expanded" : "closed"}
       className="w-full h-full flex md:flex-row flex-col gap-[20px] overflow-hidden"
