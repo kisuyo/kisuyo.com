@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Icons from "./Icons";
 
 export default function Stack(props: { scrollPointReached: number }) {
   const StackVariants = {
@@ -15,7 +16,11 @@ export default function Stack(props: { scrollPointReached: number }) {
       className="w-full h-full flex md:flex-row flex-col gap-[20px] overflow-hidden"
     >
       <div className="w-full h-full flex flex-col gap-[20px]">
-        <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px]"></div>
+        <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px] flex items-center p-[30px] gap-[20px]">
+          <Icons name="Tailwind" size={["50px", "50px"]} />
+          <Icons name="React" size={["50px", "50px"]} />
+          <Icons name="SolidJS" size={["50px", "50px"]} />
+        </div>
         <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px] font-bold text-white/30  flex items-center justify-evenly">
           <a
             href="https://github.com/Kisuyo"

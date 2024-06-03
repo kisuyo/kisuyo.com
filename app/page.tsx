@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Stack from "./components/Stack";
+import Icons from "./components/Icons";
 
 export default function Home() {
   const [scrollPointReached, setScrollPointReached] = useState(0);
@@ -146,7 +147,7 @@ export default function Home() {
                     <div className="text-white font-bold">
                       My name is Igor Voloboev.
                     </div>
-                    i make all kinds of Websites using React and SolidJs
+                    i make all kinds of Websites using React and SolidJS
                   </div>
                   <div className="pt-[10px]">
                     🎨 <span className="text-white/60">- I like Drawing.</span>
@@ -166,7 +167,11 @@ export default function Home() {
         {showMobile ? (
           <div className="p-[20px] pt-[0px] h-full">
             <motion.div className="w-full h-full flex md:flex-row flex-col gap-[20px] overflow-hidden">
-              <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px]"></div>
+              <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px] flex items-center justify-center gap-[20px]">
+                <Icons name="Tailwind" size={["50px", "50px"]} />
+                <Icons name="React" size={["50px", "50px"]} />
+                <Icons name="SolidJS" size={["50px", "50px"]} />
+              </div>
 
               <div className="w-full h-full bg-[#0e0e0e] p-2 rounded-[20px] flex justify-between flex-col">
                 <a
