@@ -179,13 +179,19 @@ export default function Home() {
                   target="_blank"
                   className="flex md:flex-row flex-col md:items-center font-light w-full gap-4 hover:bg-[#121212] transition-all p-2 rounded-md cursor-pointer"
                 >
-                  <div className="w-[100px] h-[100px] bg-[#171717] rounded-md">
-                    <img src="./LALogo.png" alt="Learn Anything" />
-                  </div>
-                  <div className="text-white/60 pr-[50px] ">
-                    <div className="text-[20px] font-bold text-white">
+                  <div className="flex items-end gap-4">
+                    <div className="w-[100px] h-[100px] bg-[#171717] overflow-hidden  flex items-center justify-center rounded-md">
+                      <img
+                        src="./LALogo.png"
+                        alt="Learn Anything"
+                        className="w-[100px] h-[100px]"
+                      />
+                    </div>
+                    <div className="text-[25px] font-bold text-white">
                       Learn Anything
                     </div>
+                  </div>
+                  <div className="text-white/60 pr-[50px] ">
                     It is a app to track your links and learn new topics fast.
                   </div>
                 </a>
@@ -194,13 +200,19 @@ export default function Home() {
                   target="_black"
                   className="flex md:flex-row flex-col md:items-center w-full gap-4 p-2 rounded-md cursor-pointer hover:bg-[#121212] transition-all"
                 >
-                  <div className="w-[100px] h-[100px] bg-[#171717] rounded-md">
-                    <img src="/KusKus.png" alt="KusKus" />
-                  </div>
-                  <div className="text-white/60">
-                    <div className="text-[20px] font-bold text-white">
+                  <div className="flex items-end gap-4">
+                    <div className="w-[100px] h-[100px] bg-[#171717] overflow-hidden flex items-center justify-center rounded-md">
+                      <img
+                        src="/KusKus.png"
+                        alt="KusKus"
+                        className="w-[100px] h-[100px]"
+                      />
+                    </div>
+                    <div className="text-[25px] font-bold text-white">
                       Kuskus
                     </div>
+                  </div>
+                  <div className="text-white/60">
                     Its an app that allows you to share places you have eaten in
                     like restaurants or cafes.
                   </div>
