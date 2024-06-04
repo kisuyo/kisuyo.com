@@ -179,7 +179,9 @@ export default function Home() {
                   target="_blank"
                   className="flex md:flex-row flex-col md:items-center font-light w-full gap-4 hover:bg-[#121212] transition-all p-2 rounded-md cursor-pointer"
                 >
-                  <div className="w-[100px] h-[100px] bg-[#171717] rounded-md"></div>
+                  <div className="w-[100px] h-[100px] bg-[#171717] rounded-md">
+                    <img src="./LALogo.png" alt="Learn Anything" />
+                  </div>
                   <div className="text-white/60 pr-[50px] ">
                     <div className="text-[20px] font-bold text-white">
                       Learn Anything
@@ -192,7 +194,9 @@ export default function Home() {
                   target="_black"
                   className="flex md:flex-row flex-col md:items-center w-full gap-4 p-2 rounded-md cursor-pointer hover:bg-[#121212] transition-all"
                 >
-                  <div className="w-[100px] h-[100px] bg-[#171717] rounded-md"></div>
+                  <div className="w-[100px] h-[100px] bg-[#171717] rounded-md">
+                    <img src="/KusKus.png" alt="KusKus" />
+                  </div>
                   <div className="text-white/60">
                     <div className="text-[20px] font-bold text-white">
                       Kuskus

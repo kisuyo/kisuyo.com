@@ -51,7 +51,13 @@ export default function Stack(props: { scrollPointReached: number }) {
           target="_blank"
           className="flex items-center font-light w-full gap-4 hover:bg-[#121212] transition-all p-2 rounded-md cursor-pointer"
         >
-          <div className="min-w-[100px] h-[100px] bg-[#171717] rounded-md"></div>
+          <div className="min-w-[100px] h-[100px] bg-[#171717] overflow-hidden flex items-center justify-center object-cover rounded-md">
+            <img
+              src="/LALogo.png"
+              alt="Learn Anything"
+              className="w-[100px] h-[100px]"
+            />
+          </div>
           <div className="text-white/60 pr-[50px] ">
             <div className="text-[20px] font-bold text-white">
               Learn Anything
@@ -69,7 +75,13 @@ export default function Stack(props: { scrollPointReached: number }) {
             Its an app that allows you to share places you have eaten in like
             restaurants or cafes.
           </div>
-          <div className="min-w-[100px] h-[100px] bg-[#171717] rounded-md"></div>
+          <div className="min-w-[100px] h-[100px] overflow-hidden flex items-center justify-center object-cover bg-[#171717] rounded-md">
+            <img
+              src="/KusKus.png"
+              alt="KusKus"
+              className="w-[100px] h-[100px]"
+            />
+          </div>
         </a>
       </div>
     </motion.div>
