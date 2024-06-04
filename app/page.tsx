@@ -145,9 +145,10 @@ export default function Home() {
                 <div className="p-5 text-[14px] flex flex-col gap-3 font-light">
                   <div className="text-white/60 pr-[20px]">
                     <div className="text-white font-bold">
-                      My name is Igor Voloboev.
+                      My name is Igor Voloboev
                     </div>
-                    i make all kinds of Websites using React and SolidJS
+                    I make all kinds of websites using React, SolidJS and Framer
+                    Motion.
                   </div>
                   <div className="pt-[10px]">
                     🎨 <span className="text-white/60">- I like Drawing.</span>
@@ -192,7 +193,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="text-white/60 pr-[50px] ">
-                    It is a app to track your links and learn new topics fast.
+                    app to track your links and learn new topics fast.
                   </div>
                 </a>
                 <a
@@ -213,8 +214,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="text-white/60">
-                    Its an app that allows you to share places you have eaten in
-                    like restaurants or cafes.
+                    app that allows you to share places you have eaten in like
+                    restaurants or cafes.
                   </div>
                 </a>
               </div>
