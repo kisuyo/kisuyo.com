@@ -1,41 +1,46 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 export default function Try() {
-  let columns = Math.floor(document.body.clientWidth / 50);
-  let rows = Math.floor(document.body.clientHeight / 50);
-  const parentElement = document.querySelector("#tile-container");
-  const createTile = (index) => {
-    const tile = document.createElement("div");
+  const [dimensions, setDimensions] = useState({ columns: 0, rows: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    tile.classList.add("tile");
+  useEffect(() => {
+    const calculateDimensions = () => {
+      const columns = Math.floor(window.innerWidth / 50);
+      const rows = Math.floor(window.innerHeight / 50);
+      setDimensions({ columns, rows });
+    };
 
-    return tile;
-  };
+    calculateDimensions();
+    window.addEventListener("resize", calculateDimensions);
 
-  const createTiles = (quantity) => {
-    Array.from(Array(quantity)).map((tile, index) => {
-      //@ts-ignore
-      parentElement.appendChild(createTile(index));
-    });
-  };
-  createTiles(columns * rows);
-  const createGrid = () => {
-    if (parentElement) {
-      parentElement.innerHTML = "";
+    return () => window.removeEventListener("resize", calculateDimensions);
+  }, []);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.style.setProperty(
+        "--columns",
+        dimensions.columns.toString()
+      );
+      containerRef.current.style.setProperty(
+        "--rows",
+        dimensions.rows.toString()
+      );
     }
-    columns = Math.floor(document.body.clientWidth / 50);
-    rows = Math.floor(document.body.clientHeight / 50);
+  }, [dimensions]);
 
-    parentElement?.style.setProperty("--columns", columns);
-    parentElement?.style.setProperty("--rows", rows);
-
-    createTiles(columns * rows);
+  const createTiles = () => {
+    return Array.from({ length: dimensions.columns * dimensions.rows }).map(
+      (_, index) => <div key={index} className="bg-red-500" />
+    );
   };
-  window.onresize = () => createGrid();
 
   return (
-    <>
-      <div id="tile-container" className=""></div>
-    </>
+    <div id="tile-container" ref={containerRef} className="">
+      {createTiles()}
+    </div>
   );
 }
