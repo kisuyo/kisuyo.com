@@ -19,20 +19,24 @@
 body {
   background: black;
   overflow-x: hidden;
-  ::-webkit-scrollbar-track {
-		background: transparent;
-	}
 
-	::-webkit-scrollbar-thumb {
-		background: #545454;
-		border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #545454;
+  border-radius: 10px;
 
 
-	}
+}
 
-	::-webkit-scrollbar-thumb:hover {
-		background: #fff;
-	}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
 }
 body {
   overscroll-behavior-y: none;

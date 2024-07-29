@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Stack from "./components/Stack";
-import Icons from "./components/Icons";
+import Icons from "@/components/Icons";
+import Stack from "@/components/Stack";
 
 export default function Home() {
   const [scrollPointReached, setScrollPointReached] = useState(0);
@@ -81,9 +81,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-screen h-full text-white">
-        <div className="h-[400vh] w-full relative">
-          <motion.div
+      <main className="w-screen h-full text-white">
+        <section className="h-[400vh] w-full relative">
+          <motion.header
             variants={ParentVariants}
             transition={{ duration: 1, easings: "ease-out" }}
             initial={"closed"}
@@ -99,7 +99,7 @@ export default function Home() {
                 animate={1 <= scrollPointReached ? "expanded" : "closed"}
                 className=" border flex items-center relative justify-center flex-col w-full h-full"
               >
-                <motion.div
+                <motion.h1
                   variants={TitleVariants}
                   transition={{ duration: 1, easings: "ease-out" }}
                   layout
@@ -108,8 +108,8 @@ export default function Home() {
                   className=" font-bold"
                 >
                   Kisuyo
-                </motion.div>
-                <motion.div
+                </motion.h1>
+                <motion.p
                   variants={DescriptionVariants}
                   transition={{ duration: 1, easings: "ease-out" }}
                   layout
@@ -118,7 +118,7 @@ export default function Home() {
                   className="md:text-[20px] text-[16px] font-normal text-white/50 md:w-[50%] w-[80%] text-center"
                 >
                   I am a front-end developer skilled in React and Tailwind.
-                </motion.div>
+                </motion.p>
               </motion.div>
 
               {!showMobile ? (
@@ -126,7 +126,7 @@ export default function Home() {
               ) : null}
             </div>
 
-            <motion.div
+            <motion.aside
               variants={AboutMeVariants}
               layout
               initial={"closed"}
@@ -144,29 +144,35 @@ export default function Home() {
                 ) : null}
                 <div className="p-5 text-[14px] flex flex-col gap-3 font-light">
                   <div className="text-white/60 pr-[20px]">
-                    <div className="text-white font-bold">
-                      My name is Igor Voloboev
-                    </div>
-                    I make all kinds of websites using React, SolidJS and Framer
-                    Motion.
+                    <h2 className="text-white font-bold">My name is Igor</h2>
+                    <p>
+                      I make all kinds of websites using React, Tailwind and
+                      Framer Motion.
+                    </p>
                   </div>
-                  <div className="pt-[10px]">
-                    🎨 <span className="text-white/60">- I like Drawing.</span>
-                  </div>
-                  <div>
-                    🎮{" "}
-                    <span className="text-white/60">- I play Video Games.</span>
-                  </div>
-                  <div>
-                    🍳 <span className="text-white/60">- I like Cooking.</span>
-                  </div>
+                  <ul>
+                    <li className="pt-[10px]">
+                      🎨{" "}
+                      <span className="text-white/60">- I like Drawing.</span>
+                    </li>
+                    <li>
+                      🎮{" "}
+                      <span className="text-white/60">
+                        - I play Video Games.
+                      </span>
+                    </li>
+                    <li>
+                      🍳{" "}
+                      <span className="text-white/60">- I like Cooking.</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        </div>
+            </motion.aside>
+          </motion.header>
+        </section>
         {showMobile ? (
-          <div className="p-[20px] pt-[0px] h-full">
+          <section className="p-[20px] pt-[0px] h-full">
             <motion.div className="w-full h-full flex md:flex-row flex-col gap-[20px] overflow-hidden">
               <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px] flex items-center justify-center gap-[20px]">
                 <Icons name="Tailwind" size={["50px", "50px"]} />
@@ -178,51 +184,54 @@ export default function Home() {
                 <a
                   href="https://github.com/learn-anything/learn-anything.xyz"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex md:flex-row flex-col md:items-center font-light w-full gap-4 hover:bg-[#121212] transition-all p-2 rounded-md cursor-pointer"
                 >
-                  <div className="flex items-end gap-4">
-                    <div className="w-[100px] h-[100px] bg-[#171717] overflow-hidden  flex items-center justify-center rounded-md">
+                  <div className="flex gap-4 h-[100px]">
+                    <div className="min-w-[100px] h-[100px] bg-[#171717] overflow-hidden  flex items-center justify-center rounded-md">
                       <img
                         src="./LALogo.png"
                         alt="Learn Anything"
                         className="w-[100px] h-[100px]"
                       />
                     </div>
-                    <div className="text-[25px] font-bold text-white">
+                    <h3 className="text-[25px] w-full flex items-center justify-center border border-slate-400/10 rounded-lg h-full font-bold text-white">
                       Learn Anything
-                    </div>
+                    </h3>
                   </div>
-                  <div className="text-white/60 pr-[50px] ">
+                  <p className="text-white/60 pr-[50px] ">
                     app to track your links and learn new topics fast.
-                  </div>
+                  </p>
                 </a>
                 <a
                   href="https://github.com/kuskusapp/kuskus"
-                  target="_black"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex md:flex-row flex-col md:items-center w-full gap-4 p-2 rounded-md cursor-pointer hover:bg-[#121212] transition-all"
                 >
-                  <div className="flex items-end gap-4">
-                    <div className="w-[100px] h-[100px] bg-[#171717] overflow-hidden flex items-center justify-center rounded-md">
+                  <div className="flex h-[100px] gap-4">
+                    <div className="min-w-[100px] h-[100px] bg-[#171717] overflow-hidden flex items-center justify-center rounded-md">
                       <img
                         src="/KusKus.png"
                         alt="KusKus"
                         className="w-[100px] h-[100px]"
                       />
                     </div>
-                    <div className="text-[25px] font-bold text-white">
+                    <h3 className="text-[25px] flex items-center justify-center border border-slate-400/10 rounded-lg w-full h-full font-bold text-white">
                       Kuskus
-                    </div>
+                    </h3>
                   </div>
-                  <div className="text-white/60">
+                  <p className="text-white/60">
                     app that allows you to share places you have eaten in like
                     restaurants or cafes.
-                  </div>
+                  </p>
                 </a>
               </div>
-              <div className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px] font-bold text-white/30  flex items-center justify-evenly">
+              <nav className="bg-[#0e0e0e] rounded-[20px] md:h-1/2 h-[100px] font-bold text-white/30  flex items-center justify-evenly">
                 <a
                   href="https://github.com/Kisuyo"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white/40 cursor-pointer transition-all"
                 >
                   Github
@@ -230,6 +239,7 @@ export default function Home() {
                 <a
                   href="https://www.instagram.com/kisuyot_t/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white/40 cursor-pointer transition-all"
                 >
                   Instagram
@@ -237,15 +247,16 @@ export default function Home() {
                 <a
                   href="https://x.com/KisuyoTT"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white/40 cursor-pointer transition-all"
                 >
                   Twitter
                 </a>
-              </div>
+              </nav>
             </motion.div>
-          </div>
+          </section>
         ) : null}
-      </div>
+      </main>
     </>
   );
 }
