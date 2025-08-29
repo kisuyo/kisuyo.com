@@ -78,3 +78,9 @@ body {
     linear-gradient(black, black) padding-box;
   mask-composite: subtract;
 }
+
+.image-circle {
+}
+
+.image-circle img {
+}
