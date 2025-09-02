@@ -3,26 +3,59 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function BoxGrid() {
-  const gridSize = 9; // Change this number to adjust grid size (e.g., 5 for 5x5, 8 for 8x8)
-  const totalBoxes = gridSize * gridSize;
-  const boxes = Array.from({ length: totalBoxes }, (_, i) => i);
-  const [hoveredBox, setHoveredBox] = useState<number | null>(null);
+export default function SonarBoxGrid() {
+  const boxes = Array.from({ length: 49 }, (_, i) => i);
+  const [clickedBox, setClickedBox] = useState<number | null>(null);
+  const [pingProgress, setPingProgress] = useState<number>(0);
+  const [isPinging, setIsPinging] = useState<boolean>(false);
 
-  const getBlueRingColor = (boxIndex: number) => {
-    if (hoveredBox === null) return "var(--secondary-900)";
+  const handleBoxClick = (boxIndex: number) => {
+    setClickedBox(boxIndex);
+    setIsPinging(true);
+    setPingProgress(0);
 
-    const hoveredCol = hoveredBox % gridSize;
-    const hoveredRow = Math.floor(hoveredBox / gridSize);
-    const boxCol = boxIndex % gridSize;
-    const boxRow = Math.floor(boxIndex / gridSize);
+    // Animate ping from 0 to 7 (max distance)
+    const pingDuration = 1000; // 1 second
+    const startTime = Date.now();
+
+    const animatePing = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / pingDuration, 1);
+      setPingProgress(progress * 7); // 0 to 7
+
+      if (progress < 1) {
+        requestAnimationFrame(animatePing);
+      } else {
+        setIsPinging(false);
+      }
+    };
+
+    requestAnimationFrame(animatePing);
+  };
+
+  const getSonarColor = (boxIndex: number) => {
+    if (clickedBox === null) return "var(--secondary-900)";
+
+    const clickedCol = clickedBox % 7;
+    const clickedRow = Math.floor(clickedBox / 7);
+    const boxCol = boxIndex % 7;
+    const boxRow = Math.floor(boxIndex / 7);
 
     const distance = Math.max(
-      Math.abs(hoveredCol - boxCol),
-      Math.abs(hoveredRow - boxRow)
+      Math.abs(clickedCol - boxCol),
+      Math.abs(clickedRow - boxRow)
     );
 
-    // Static blue ring scheme
+    // During ping animation
+    if (isPinging) {
+      const pingDistance = Math.abs(distance - pingProgress);
+      if (pingDistance <= 0.5) {
+        return "#3b82f6"; // Blue during ping
+      }
+      return "var(--secondary-900)";
+    }
+
+    // After ping completes - static blue scheme
     if (distance === 0) return "#1e40af"; // Deep blue - center
     if (distance === 1) return "#1d4ed8"; // Medium blue - inner ring
     if (distance === 2) return "#3b82f6"; // Light blue - outer ring
@@ -30,16 +63,16 @@ export default function BoxGrid() {
   };
 
   const getTranslateY = (boxIndex: number) => {
-    if (hoveredBox === null) return 0;
+    if (clickedBox === null) return 0;
 
-    const hoveredCol = hoveredBox % gridSize;
-    const hoveredRow = Math.floor(hoveredBox / gridSize);
-    const boxCol = boxIndex % gridSize;
-    const boxRow = Math.floor(boxIndex / gridSize);
+    const clickedCol = clickedBox % 7;
+    const clickedRow = Math.floor(clickedBox / 7);
+    const boxCol = boxIndex % 7;
+    const boxRow = Math.floor(boxIndex / 7);
 
     const distance = Math.max(
-      Math.abs(hoveredCol - boxCol),
-      Math.abs(hoveredRow - boxRow)
+      Math.abs(clickedCol - boxCol),
+      Math.abs(clickedRow - boxRow)
     );
 
     if (distance === 0) return 20; // Center box - most translation
@@ -49,23 +82,19 @@ export default function BoxGrid() {
   };
 
   return (
-    <div className="w-screen h-screen bg-[var(--secondary-900)] text-[var(--secondary-100)] flex items-center justify-center">
-      <div
-        className={`grid relative w-[100px] h-[100px]`}
-        style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)` }}
-      >
+    <div className="w-full h-full bg-[var(--secondary-900)] text-[var(--secondary-100)] flex items-center justify-center">
+      <div className="grid grid-cols-7 relative w-[100px] h-[100px]">
         {boxes.map((index) => {
-          const col = index % gridSize;
-          const row = Math.floor(index / gridSize);
+          const col = index % 7;
+          const row = Math.floor(index / 7);
           return (
             <Box
               key={index}
               col={col}
               row={row}
               index={index}
-              onHover={() => setHoveredBox(index)}
-              onLeave={() => setHoveredBox(null)}
-              color={getBlueRingColor(index)}
+              onClick={() => handleBoxClick(index)}
+              color={getSonarColor(index)}
               translateY={getTranslateY(index)}
             />
           );
@@ -79,16 +108,14 @@ const Box = ({
   col,
   row,
   index,
-  onHover,
-  onLeave,
+  onClick,
   color,
   translateY,
 }: {
   col: number;
   row: number;
   index: number;
-  onHover: () => void;
-  onLeave: () => void;
+  onClick: () => void;
   color: string;
   translateY: number;
 }) => {
@@ -102,9 +129,9 @@ const Box = ({
         left: `${col * 50 + row * -50}px`,
         zIndex: index,
       }}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
+      onClick={onClick}
       whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       animate={{ y: translateY }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
