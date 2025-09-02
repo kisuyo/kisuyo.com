@@ -78,9 +78,9 @@ export default function Stake() {
   const handleMouseUp = (e: React.MouseEvent) => {};
   return (
     <>
-      <div className="w-full bg-[var(--secondary-900)]">
+      <div className="w-full bg-[var(--secondary-900)] select-none">
         <div
-          className="max-w-[500px] mx-auto bg-[var(--secondary-900)] h-screen flex flex-col"
+          className="max-w-[500px] mx-auto bg-[var(--secondary-900)] h-screen flex flex-col select-none"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
