@@ -98,7 +98,7 @@ const Box = ({
       style={{
         perspective: "1000px",
         perspectiveOrigin: "center center",
-        top: `${row * 26 - col * -26}px`,
+        top: `${row * 26 - col * -26 - 200}px`,
         left: `${col * 50 + row * -50}px`,
         zIndex: index,
       }}
