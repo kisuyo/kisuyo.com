@@ -18,6 +18,16 @@
 
   --accent-400: hsl(93, 60%, 69%);
 
+  --secondary-900: hsl(0, 2%, 8%);
+  --secondary-800: hsl(0, 2%, 12%);
+  --secondary-700: hsl(0, 2%, 16%);
+  --secondary-600: hsl(0, 2%, 20%);
+  --secondary-500: hsl(0, 2%, 24%);
+  --secondary-400: hsl(0, 2%, 28%);
+  --secondary-300: hsl(0, 2%, 32%);
+  --secondary-200: hsl(0, 2%, 36%);
+  --secondary-100: hsl(0, 2%, 40%);
+
   --text-1: var(--neutral-100);
   --text-2: var(--primary-100);
   --text-3: var(--primary-200);

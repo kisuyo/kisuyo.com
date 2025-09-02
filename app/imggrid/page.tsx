@@ -80,7 +80,7 @@ function ImageCubeGrid({ imageUrl, width, cubeSize = 20 }: ImageCubeGridProps) {
   );
 }
 
-export default function Try() {
+export default function ImgGrid() {
   const [cubeSize, setCubeSize] = useState(20);
   const [width, setWidth] = useState(300);
 
