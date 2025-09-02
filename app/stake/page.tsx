@@ -96,7 +96,7 @@ export default function Stake() {
               duration: 1,
               ease: "easeOut",
             }}
-            className="h-[50%] flex justify-center items-between flex-col w-ful rounded-b-[50px]"
+            className="h-[60%] flex justify-center items-between flex-col w-ful rounded-b-[50px]"
             style={{
               background: `radial-gradient(
               circle at 50% -100%,
