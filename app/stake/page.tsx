@@ -78,9 +78,9 @@ export default function Stake() {
   const handleMouseUp = (e: React.MouseEvent) => {};
   return (
     <>
-      <div className="w-full bg-[var(--secondary-900)] select-none">
+      <div className="w-full poppins bg-gradient-to-b from-[var(--secondary-700)] to-[var(--secondary-900)] select-none">
         <div
-          className="max-w-[500px] mx-auto bg-[var(--secondary-900)] h-screen flex flex-col select-none"
+          className="max-w-[500px] mx-auto  h-screen flex flex-col select-none"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -96,15 +96,15 @@ export default function Stake() {
               duration: 1,
               ease: "easeOut",
             }}
-            className="h-[60%] flex justify-center items-between flex-col w-ful rounded-b-[50px]"
-            style={{
-              background: `radial-gradient(
-              circle at 50% -100%,
-              hsl(from var(--secondary-400) h s l / 1),
-              hsl(from var(--secondary-500) h s l / 0.5)
-            )
-            padding-box`,
-            }}
+            className="h-[60%] flex glass-card justify-center items-between flex-col w-ful rounded-b-[50px]"
+            // style={{
+            //   background: `radial-gradient(
+            //   circle at 50% -100%,
+            //   hsl(from var(--secondary-400) h s l / 1),
+            //   hsl(from var(--secondary-500) h s l / 0.5)
+            // )
+            // padding-box`,
+            // }}
           >
             <motion.div
               animate={{
