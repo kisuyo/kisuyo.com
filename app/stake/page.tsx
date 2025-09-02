@@ -122,12 +122,12 @@ export default function Stake() {
               <span className="text-[var(--primary-200)] text-[56px] font-bold flex items-center gap-2">
                 <AnimatedCounter
                   value={stakes[chosedStake].small}
-                  duration={0.15}
+                  duration={1.5}
                 />
                 /
                 <AnimatedCounter
                   value={stakes[chosedStake].big}
-                  duration={0.15}
+                  duration={1.5}
                 />
               </span>
             </div>
@@ -137,13 +137,13 @@ export default function Stake() {
                 <AnimatedCounter
                   value={stakes[chosedStake].buyIn.min}
                   format="currency"
-                  duration={0.15}
+                  duration={1.5}
                 />
                 /
                 <AnimatedCounter
                   value={stakes[chosedStake].buyIn.max}
                   format="currency"
-                  duration={0.15}
+                  duration={1.5}
                 />
               </span>
             </div>
