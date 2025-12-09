@@ -6,13 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@types/three": "^0.180.0",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.5",
     "framer-motion": "^11.2.10",
+    "lil-gui": "^0.20.0",
     "next": "14.2.3",
+    "postgres": "^3.4.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "typescript": "^5",

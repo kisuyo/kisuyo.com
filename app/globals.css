@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure full viewport for canvas */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#__next {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary-900: hsl(256, 43%, 7%);
   --primary-800: hsl(240, 24%, 13%);
@@ -97,4 +118,12 @@ body {
 
 .poppins {
   font-family: "Poppins", sans-serif;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi.woff2") format("woff2"),
+    url("/fonts/Nohemi.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
