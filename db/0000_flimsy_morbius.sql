@@ -1,0 +1,22 @@
+CREATE TABLE "daily_entries" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"date" date NOT NULL,
+	"mac_work_1h" boolean DEFAULT false NOT NULL,
+	"game_work_2h" boolean DEFAULT false NOT NULL,
+	"gym" boolean DEFAULT false NOT NULL,
+	"boxing" boolean DEFAULT false NOT NULL,
+	"meditate" boolean DEFAULT false NOT NULL,
+	"clean_foods" boolean DEFAULT false NOT NULL,
+	"protein_goal" boolean DEFAULT false NOT NULL,
+	"no_sugar" boolean DEFAULT false NOT NULL,
+	"potassium" boolean DEFAULT false NOT NULL,
+	"wake_up_on_time" boolean DEFAULT false NOT NULL,
+	"sleep_on_time" boolean DEFAULT false NOT NULL,
+	"shower" boolean DEFAULT false NOT NULL,
+	"skincare" boolean DEFAULT false NOT NULL,
+	"take_trash_out" boolean DEFAULT false NOT NULL,
+	"score" integer DEFAULT 0 NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL,
+	CONSTRAINT "daily_entries_date_unique" UNIQUE("date")
+);

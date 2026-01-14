@@ -31,7 +31,6 @@ const computeRadiusRatio = (r: number, g: number, b: number, a: number) => {
 
 const buildCells = (samplerCtx: CanvasRenderingContext2D): CellSample[] => {
   const cells: CellSample[] = [];
-  const halfCore = CELLS_PER_SIDE / 2;
 
   for (let row = -FADE_MARGIN; row < CELLS_PER_SIDE + FADE_MARGIN; row++) {
     for (let col = -FADE_MARGIN; col < CELLS_PER_SIDE + FADE_MARGIN; col++) {
