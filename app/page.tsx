@@ -1,94 +1,67 @@
-import RepelGridBackground from "@/components/RepelGridBackground";
+import Image from "next/image";
+import styles from "./page.module.css";
+
+function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+  return (
+    <svg aria-hidden="true" fill="none" viewBox="0 0 20 20">
+      <path
+        d={diagonal ? "M5 15 15 5M5 5h10v10" : "M4 10h12m-5-5 5 5-5 5"}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="relative h-screen overflow-hidden">
-      <RepelGridBackground>
-        <div className="nohemi w-full max-w-2xl text-white">
-          <div className="text-center">
-            <h1 className="text-[clamp(2.5rem,7vw,3.875rem)] tracking-[0.08em]">
-              Hey, I&apos;m Igor
-            </h1>
-            <p className="mt-3 text-sm tracking-normal text-white/70">
-              I am a full stack software developer
-            </p>
-          </div>
+    <div className={styles.page}>
+      <a className={styles.skipLink} href="#main">Skip to content</a>
 
-          <section
-            aria-labelledby="current-project"
-            className="mt-[clamp(2.25rem,7vh,4.5rem)] text-left"
-          >
-            <p
-              id="current-project"
-              className="mb-3 text-[11px] uppercase tracking-[0.2em] text-white/45"
-            >
-              Currently building
-            </p>
-            <a
-              href="https://mutethenoise.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-[clamp(1rem,3vw,1.5rem)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70"
-            >
-              <span className="flex size-12 items-center justify-center rounded-xl border border-white/10 bg-black/10 text-xs font-medium tracking-[0.18em] text-white/80 sm:size-14">
-                MTN
-              </span>
-              <span className="min-w-0">
-                <span className="block text-base tracking-[0.02em] sm:text-lg">
-                  MuteTheNoise
-                </span>
-                <span className="mt-1 block text-xs leading-5 tracking-normal text-white/55 sm:text-sm">
-                  A focused desktop workspace for monitoring automated trading
-                  strategies.
-                </span>
-              </span>
-              <svg
-                aria-hidden="true"
-                className="size-5 text-white/40 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white/80"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M4 10h11m-4-4 4 4-4 4"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.25"
-                />
-              </svg>
-            </a>
-          </section>
-        </div>
-      </RepelGridBackground>
-      <nav
-        aria-label="Social links"
-        className="fixed bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-4 whitespace-nowrap text-sm text-white/70 sm:left-4 sm:translate-x-0"
-      >
-        <a
-          href="https://github.com/kisuyo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white hover:scale-[1.02] cursor-pointer transition-all"
-        >
-          Github
+      <header className={styles.header}>
+        <a className={styles.brand} href="/" aria-label="Kisuyo home">
+          <span className={styles.brandMark} aria-hidden="true" />
+          kisuyo
         </a>
-        <a
-          href="https://x.com/KisuyoTT"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white hover:scale-[1.02] cursor-pointer transition-all"
-        >
-          Twitter
-        </a>
-        <a
-          href="https://discord.com/users/503533204259733504"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white hover:scale-[1.02] cursor-pointer transition-all"
-        >
-          Discord
-        </a>
-      </nav>
-    </main>
+        <nav aria-label="Social links" className={styles.socials}>
+          <a href="https://github.com/kisuyo" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://x.com/KisuyoTT" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://discord.com/users/503533204259733504" target="_blank" rel="noopener noreferrer">Discord</a>
+        </nav>
+      </header>
+
+      <main id="main" className={styles.main} tabIndex={-1}>
+        <section aria-labelledby="intro-title" className={styles.hero}>
+          <h1 id="intro-title">Hey, I&apos;m <span className={styles.pastel}>Igor.</span></h1>
+          <p>I am a full stack software developer.</p>
+          <div className={styles.actions}>
+            <a className={styles.primaryAction} href="https://github.com/kisuyo?tab=repositories" target="_blank" rel="noopener noreferrer">Explore my work <Arrow /></a>
+            <a className={styles.secondaryAction} href="https://discord.com/users/503533204259733504" target="_blank" rel="noopener noreferrer">Let&apos;s talk <Arrow diagonal /></a>
+          </div>
+        </section>
+
+        <section id="work" aria-labelledby="current-project" className={styles.work}>
+          <h2 id="current-project">Currently building<span aria-hidden="true">.</span></h2>
+          <a className={styles.project} href="https://orbi.gg" target="_blank" rel="noopener noreferrer">
+            <span className={styles.projectMark} aria-hidden="true">
+              <Image src="/branding/orbi-sphere.svg" alt="" width={64} height={64} />
+            </span>
+            <span className={styles.projectCopy}>
+              <span className={styles.projectTitle}>Orbi</span>
+              <span className={styles.projectDescription}>Your personal trading companion. Build crypto bots, follow signals, and run your strategy.</span>
+            </span>
+            <span className={styles.projectArrow}><Arrow diagonal /></span>
+          </a>
+        </section>
+      </main>
+
+      <footer className={styles.footer}>
+        <span>kisuyo.com</span>
+        <a href="https://github.com/kisuyo" target="_blank" rel="noopener noreferrer">Find me on GitHub <Arrow diagonal /></a>
+      </footer>
+      <div className={styles.horizon} aria-hidden="true" />
+    </div>
   );
 }
